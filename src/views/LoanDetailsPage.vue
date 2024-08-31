@@ -2,7 +2,6 @@
   <MyHeader></MyHeader>
   <div style="padding-bottom: 90px">
     <h2 style="margin-left: 15px; padding-top: 80px">Loan Details Page</h2>
-
     <div class="card1" v-if="items">
       <div style="display: flex; justify-content: space-between">
         <div>
@@ -17,7 +16,7 @@
             <p class="text">Interest Rate</p>
             &nbsp;
             <p class="text" style="color: green; font-weight: bold">
-              {{ items.interestRate }}
+              {{ items.interestRate }}%
             </p>
           </div>
         </div>
@@ -34,9 +33,9 @@
           </div>
         </div>
       </div>
-      <!-- <p>{{ items.borrower }}</p> -->
     </div>
 
+    <!-- Borrower Details Card -->
     <p class="text-title">Borrower Details:</p>
     <div class="card1" style="display: flex; flex-direction: column">
       <div class="detail-row">
@@ -56,6 +55,7 @@
       </div>
     </div>
 
+    <!-- Repayment Schedule Card  -->
     <p class="text-title">Repayment Schedule:</p>
     <div style="display: flex; justify-content: space-between">
       <div class="card2" v-for="item in installments" :key="item.id">
@@ -86,9 +86,6 @@ export default {
   components: {
     MyHeader,
   },
-  // setup() {
-  //   const { LoanList } = LoanList();
-  // },
   mounted() {
     this.getLoanList();
   },
@@ -103,6 +100,7 @@ export default {
   },
 
   methods: {
+    // Method for fetching loan details
     async getLoanList() {
       const response = await fetch(
         "https://raw.githubusercontent.com/andreascandle/p2p_json_test/main/api/json/loans.json "
@@ -117,6 +115,7 @@ export default {
       console.log("Loan list:", this.items);
     },
 
+    // Alert for Lend Button
     lend() {
       alert("Lend Success!");
     },
@@ -127,8 +126,10 @@ export default {
 <style>
 .card1 {
   display: flex;
-  width: 95%;
+  /* width: calc(95% - 30px); */
+  max-width: 95%;
   justify-content: space-between;
+  flex-direction: column;
   border: 1px solid #ccc;
   border-radius: 15px;
   padding: 16px;
@@ -209,10 +210,6 @@ export default {
   .text {
     font-size: 12px;
     word-break: break-all;
-  }
-  .card1 {
-    padding: 12px;
-    margin: 10px;
   }
 }
 </style>

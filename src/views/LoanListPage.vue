@@ -1,7 +1,7 @@
 <template>
   <MyHeader></MyHeader>
   <div>
-    <h2 style="margin-left: 15px; padding-top: 80px">Loan List</h2>
+    <h2 style="margin-left: 15px; margin-bottom: 0px; padding-top: 80px">Loan List</h2>
     <LoanList> </LoanList>
   </div>
 </template>
@@ -16,16 +16,5 @@ export default {
     LoanList,
     MyHeader,
   },
-  // setup() {
-  //   const { LoanList } = LoanList();
-  // },
-
-  data() {
-    return {};
-  },
-
-  methods: {},
 };
 </script>
-
-<style></style>
