@@ -117,9 +117,9 @@ export default {
       console.log("Loan list:", this.items);
     },
 
-    lend(){
-        alert("Lend Success!")
-    }
+    lend() {
+      alert("Lend Success!");
+    },
   },
 };
 </script>
